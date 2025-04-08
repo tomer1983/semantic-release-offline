@@ -1,5 +1,5 @@
 # Use a more recent Node.js LTS version for better support and security
-FROM node:18
+FROM node:20.8.1
 
 # Set the working directory
 WORKDIR /app
