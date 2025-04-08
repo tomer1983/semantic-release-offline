@@ -34,6 +34,7 @@ jobs:
         context: .
         push: false # Do not push yet, we will test the image first
         tags: semantic-release-offline:test
+        load: true # Ensure the image is loaded into the local Docker daemon
     
     
     # Print the full image name and tag
