@@ -16,7 +16,7 @@ jobs:
     # Checkout the repository
     - uses: actions/checkout@v4
     
-    # Login to DockerHub
+    # Login to Private DockerHub
     - name: Login to DockerHub
       uses: docker/login-action@v3
       with:
