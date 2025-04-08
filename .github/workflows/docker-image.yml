@@ -35,6 +35,12 @@ jobs:
         push: false # Do not push yet, we will test the image first
         tags: semantic-release-offline:test
     
+    
+    # Print the full image name and tag
+    - name: Print image ls
+      run: |
+        docker images ls    
+        
     # Test the Docker image
     - name: Test semantic-release-offline image
       run: |

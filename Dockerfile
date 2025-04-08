@@ -5,7 +5,7 @@ FROM node:20.8.1
 WORKDIR /app
 
 # Copy package.json and package-lock.json for dependency installation
-COPY package*.json ./
+# COPY package*.json ./
 
 # Install dependencies using npm ci for reproducible builds
 RUN npm ci
