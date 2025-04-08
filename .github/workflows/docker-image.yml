@@ -39,8 +39,8 @@ jobs:
     # Print the full image name and tag
     - name: Print image ls
       run: |
-        docker images ls    
-        
+        docker image ls    
+
     # Test the Docker image
     - name: Test semantic-release-offline image
       run: |
