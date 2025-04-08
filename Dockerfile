@@ -8,7 +8,7 @@ WORKDIR /app
 # COPY package*.json ./
 
 # Install dependencies using npm ci for reproducible builds
-RUN npm ci
+# RUN npm ci
 
 # Install semantic-release and required plugins globally
 RUN npm install -g semantic-release @semantic-release/gitlab @semantic-release/changelog @semantic-release/exec @semantic-release/commit-analyzer @semantic-release/git @semantic-release/release-notes-generator
