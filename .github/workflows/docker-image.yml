@@ -36,22 +36,18 @@ jobs:
         tags: semantic-release-offline:test
         load: true # Ensure the image is loaded into the local Docker daemon
     
-    
-    # Print the full image name and tag
-    - name: Print image ls
+    # Test the Docker image and capture the version
+    - name: Get semantic-release version
+      id: get-version # Add an ID to reference the output
       run: |
-        docker image ls    
-
-    # Test the Docker image
-    - name: Test semantic-release-offline image
-      run: |
-        docker run --rm semantic-release-offline:test semantic-release --version
+        VERSION=$(docker run --rm semantic-release-offline:test semantic-release --version)
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
     
-    # Push the Docker image to DockerHub
+    # Push the Docker image to DockerHub with the version as the tag
     - name: Push semantic-release-offline image
       if: success() # Only push if the build and test steps succeed
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/semantic-release-offline:v1.0
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/semantic-release-offline:${{ env.VERSION }}
